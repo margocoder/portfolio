@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/favicon.ico">
-  <title>San Francisco Tourist Chatbot</title>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>VP Product – Executive Profile</title>
   <style>
+    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
@@ -14,256 +14,154 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      min-height: 100vh;
-      padding: 2rem;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
+      color: #222;
+      background-color: #fff;
+      padding: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-    }
-
-    .header {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      padding: 3rem 2rem;
-      color: #2c3e50;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 4px solid #FC5B30;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(252, 91, 48, 0.05) 0%, transparent 70%);
-      animation: pulse 15s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo {
-      width: 150px;
-      height: auto;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    }
-
-    .header-text {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 16px;
     }
 
     h1 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      color: #2c3e50;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      font-size: 2em;
+      margin-bottom: 24px;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
-      color: #5a6c7d;
+    h2 {
+      font-size: 1.5em;
+      margin-top: 32px;
     }
 
-    .content {
-      padding: 3rem 2rem;
-      background: #fafbfc;
-    }
-    
-    .section {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 4px solid #FC5B30;
-    }
-
-    .section:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(252, 91, 48, 0.15);
-    }
-
-    h3 {
-      color: #FC5B30;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      font-weight: normal;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    h3::before {
-      content: '▸';
-      color: #2c3e50;
-      font-size: 1.2rem;
-    }
-
-    h4 {
-      color: #2c3e50;
-      margin: 1.5rem 0 0.8rem 0;
-      font-size: 1.1rem;
-      padding-left: 1rem;
-      border-left: 3px solid #FC5B30;
+    p {
+      margin-bottom: 16px;
     }
 
     ul {
-      margin: 0.5rem 0 0 1.5rem;
-      padding-left: 1rem;
+      margin-left: 20px;
+      margin-bottom: 16px;
     }
 
-    li {
-      margin-bottom: 0.8rem;
-      color: #495057;
-      position: relative;
-      padding-left: 0.5rem;
-      transition: color 0.2s ease;
+    .section {
+      margin-bottom: 48px;
     }
 
-    li:hover {
-      color: #FC5B30;
-      cursor: pointer;
+    /* Logo Ticker */
+    .logo-ticker {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+      margin-top: 16px;
     }
 
-    li::marker {
-      color: #FC5B30;
+    .logo-ticker img {
+      height: 50px;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      object-fit: contain;
+      transition: none;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+    /* Press list */
+    .press-list li {
+      margin-bottom: 8px;
+    }
+
+    /* Contact */
+    .contact a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
       body {
-        padding: 1rem;
+        padding: 20px;
       }
-
-      .header {
-        padding: 2rem 1rem;
+      .logo-ticker {
+        justify-content: center;
+        gap: 16px;
       }
-
-      .header-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo {
-        width: 150px;
-        margin-bottom: 1.5rem;
-      }
-
-      .header-text {
-        position: static;
-        transform: none;
-      }
-      .content {
-        padding: 1.5rem 1rem;
+      .logo-ticker img {
+        height: 35px;
       }
     }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Selection color */
-    ::selection {
-      background: #FC5B30;
-      color: white;
-    }
-
-    /* Reset only the widget's headings to browser defaults */
-    #anything-llm-chat h1 {
-      all: revert !important;
-      display: block !important;
-      margin-block-start: 0.67em !important;
-      margin-block-end: 0.67em !important;
-      font-weight: bold !important;
-      font-size: 1.2em !important;
-    }
-    
-    #anything-llm-chat h2 {
-      all: revert !important;
-      display: block !important;
-      margin-block-start: 0.83em !important;
-      margin-block-end: 0.83em !important;
-      font-weight: bold !important;
-      font-size: 1em !important;
-    }
-
-    /*
-    #anything-llm-chat h3 {
-      all: revert !important;
-      display: block !important;
-      margin-block-start: 0.83em !important;
-      margin-block-end: 0.83em !important;
-      font-weight: bold !important;
-      color: #FC5B30;
-      font-size: 1em !important;
-    }
-    */
-
-
-    
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="header-content">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="My Website Logo" class="logo">
-        <div class="header-text">
-          <h1>San Francisco Tourist Chatbot</h1>
-          <p class="subtitle">An intelligent assistant for San Francisco tourists</p>
-        </div>
-      </div>
+
+  <!-- Hero / Positioning -->
+  <section class="section hero">
+    <h1>VP of Product — Enterprise Software & Multi-Domain Platforms</h1>
+    <p>
+      I build and scale multi-domain enterprise platforms, multi-tenant SaaS, and high-engagement mobile applications, integrating complex ecosystems to deliver measurable impact. My work spans product strategy, execution, and organizational design across regulated and fast-moving environments.
+    </p>
+    <p><strong>Patents:</strong> 6 awarded in product and technology innovation.</p>
+  </section>
+
+  <!-- Experience Highlights -->
+  <section class="section experience">
+    <h2>Experience Highlights</h2>
+    <p>I have led product development across diverse domains, focusing on multi-tenant SaaS, high-engagement mobile applications, and community-driven experiences:</p>
+    <ul>
+      <li><strong>Grant and Scholarship Management</strong> – Multi-tenant SaaS platform delivering enterprise-grade workflow and reporting.</li>
+      <li><strong>Digital Therapeutics</strong> – Multi-tenant SaaS and high-engagement mobile apps with community experiences.</li>
+      <li><strong>Medication Adherence, Price Transparency, and Wellness Tracking</strong> – Mobile applications optimizing patient engagement.</li>
+      <li><strong>Wireless Technologies and Real-Time Location Systems</strong> – Foundational work in real-time connectivity and tracking integrations.</li>
+    </ul>
+    <p>Areas of focus include platform strategy, multi-system integrations, scaling teams, and driving enterprise adoption and engagement.</p>
+  </section>
+
+  <!-- Enterprise Traction -->
+  <section class="section traction">
+    <h2>Enterprise Traction</h2>
+    <p>The products I’ve helped build and scale have been adopted by enterprise and Fortune-level customers across multiple industries.</p>
+    <div class="logo-ticker">
+      <!-- Replace src with your logos -->
+      <img src="logo1.png" alt="Customer/Partner 1">
+      <img src="logo2.png" alt="Customer/Partner 2">
+      <img src="logo3.png" alt="Customer/Partner 3">
+      <img src="logo4.png" alt="Customer/Partner 4">
+      <img src="logo5.png" alt="Customer/Partner 5">
     </div>
+  </section>
 
-    <div class="content">
-      <div id="prompt-library">
-        <h2>💬 Sample Prompts</h2>
-        <p>Try any of these prompts in the Chatbot widget!</p>
-      </div>
-    </div>
-  </div>
+  <!-- Press & Recognition -->
+  <section class="section press">
+    <h2>Selected Press & Recognition</h2>
+    <ul class="press-list">
+      <li>[Publication or outlet name]</li>
+      <li>[Conference, panel, or podcast]</li>
+      <li>[Award or recognition]</li>
+    </ul>
+  </section>
 
-  <!-- Begin Embed Chatbot Widget -->
-<script type="module" src="https://cdn.onyx.app/widget/1.0/dist/onyx-widget.js"></script>
+  <!-- Product Leadership Perspective -->
+  <section class="section perspective">
+    <h2>Product Leadership Perspective</h2>
+    <p>I approach product leadership as a system-level discipline:</p>
+    <ul>
+      <li>Creating clarity and alignment across multi-domain initiatives</li>
+      <li>Balancing long-term platform thinking with near-term delivery and engagement</li>
+      <li>Designing scalable operating models for product teams</li>
+      <li>Maintaining strong feedback loops across customers, stakeholders, and teams</li>
+    </ul>
+  </section>
 
-<!-- Configure and display -->
-<onyx-chat-widget
-  backend-url="https://cloud.onyx.app/api"
-  agent-name="SF Tourism"
-  logo="{{ url_for('static', filename='images/icon_small_circle.png') }}"
-  api-key="on_tenant_ded88136-36f6-455b-9ef3-30edfd5824fa.-K8knrpW16PQwMnQKecMDK5udTVoFkJLSn9zLrCIUiobJV3rOA9jlQHoF2mT-l7iWI1kG5Bf9bGBQrsuNyxtZnI_bkXYmdTSUKGdn5ZvcZIq2KwuyK-BHIyHvIEUwI9neLI9YqMuv0DP7UF-pGcofHHzs5ox94V00zb4cXXt0E4eUQb6oaQkh07DtWRGHyJqGoYiMYeX67MRO69WNSiQaa2Vc0Ckqdh1nasxw9s1vYyGBdZ69lapPW3DwFIk-oxf"
-  mode="launcher"
->
-</onyx-chat-widget>
+  <!-- Contact -->
+  <section class="section contact">
+    <h2>Professional Inquiries</h2>
+    <p>Email: <a href="mailto:yourname@gmail.com">yourname@gmail.com</a></p>
+  </section>
 
 </body>
 </html>
