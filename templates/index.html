@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  <title>San Francisco Tourist Chatbot</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 3rem 2rem;
+      color: #2c3e50;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid #FC5B30;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(252, 91, 48, 0.05) 0%, transparent 70%);
+      animation: pulse 15s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #2c3e50;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #5a6c7d;
+    }
+
+    .content {
+      padding: 3rem 2rem;
+      background: #fafbfc;
+    }
+    
+    .section {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid #FC5B30;
+    }
+
+    .section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(252, 91, 48, 0.15);
+    }
+
+    h3 {
+      color: #FC5B30;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3::before {
+      content: '▸';
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+
+    h4 {
+      color: #2c3e50;
+      margin: 1.5rem 0 0.8rem 0;
+      font-size: 1.1rem;
+      padding-left: 1rem;
+      border-left: 3px solid #FC5B30;
+    }
+
+    ul {
+      margin: 0.5rem 0 0 1.5rem;
+      padding-left: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      color: #495057;
+      position: relative;
+      padding-left: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    li:hover {
+      color: #FC5B30;
+      cursor: pointer;
+    }
+
+    li::marker {
+      color: #FC5B30;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .header {
+        padding: 2rem 1rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        width: 150px;
+        margin-bottom: 1.5rem;
+      }
+
+      .header-text {
+        position: static;
+        transform: none;
+      }
+      .content {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection color */
+    ::selection {
+      background: #FC5B30;
+      color: white;
+    }
+
+    /* Reset only the widget's headings to browser defaults */
+    #anything-llm-chat h1 {
+      all: revert !important;
+      display: block !important;
+      margin-block-start: 0.67em !important;
+      margin-block-end: 0.67em !important;
+      font-weight: bold !important;
+      font-size: 1.2em !important;
+    }
+    
+    #anything-llm-chat h2 {
+      all: revert !important;
+      display: block !important;
+      margin-block-start: 0.83em !important;
+      margin-block-end: 0.83em !important;
+      font-weight: bold !important;
+      font-size: 1em !important;
+    }
+
+    /*
+    #anything-llm-chat h3 {
+      all: revert !important;
+      display: block !important;
+      margin-block-start: 0.83em !important;
+      margin-block-end: 0.83em !important;
+      font-weight: bold !important;
+      color: #FC5B30;
+      font-size: 1em !important;
+    }
+    */
+
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-content">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="My Website Logo" class="logo">
+        <div class="header-text">
+          <h1>San Francisco Tourist Chatbot</h1>
+          <p class="subtitle">An intelligent assistant for San Francisco tourists</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="prompt-library">
+        <h2>💬 Sample Prompts</h2>
+        <p>Try any of these prompts in the Chatbot widget!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Begin Embed Chatbot Widget -->
+<script type="module" src="https://cdn.onyx.app/widget/1.0/dist/onyx-widget.js"></script>
+
+<!-- Configure and display -->
+<onyx-chat-widget
+  backend-url="https://cloud.onyx.app/api"
+  agent-name="SF Tourism"
+  logo="{{ url_for('static', filename='images/icon_small_circle.png') }}"
+  api-key="on_tenant_ded88136-36f6-455b-9ef3-30edfd5824fa.-K8knrpW16PQwMnQKecMDK5udTVoFkJLSn9zLrCIUiobJV3rOA9jlQHoF2mT-l7iWI1kG5Bf9bGBQrsuNyxtZnI_bkXYmdTSUKGdn5ZvcZIq2KwuyK-BHIyHvIEUwI9neLI9YqMuv0DP7UF-pGcofHHzs5ox94V00zb4cXXt0E4eUQb6oaQkh07DtWRGHyJqGoYiMYeX67MRO69WNSiQaa2Vc0Ckqdh1nasxw9s1vYyGBdZ69lapPW3DwFIk-oxf"
+  mode="launcher"
+>
+</onyx-chat-widget>
+
+</body>
+</html>
